@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Apartamenty-Krakowskie</title>
+    <link rel="stylesheet" type="text/css" href="/login.css">
+</head>
+<body>
+<form id="login-form" method="POST" th:object="${apart}">
+    <input type="text" placeholder="number" th:field="*{number}"><br/>
+    <input type="text" placeholder="Liczba pokoi" th:field="*{roomCount}"><br/>
+    <input type="text" placeholder="Liczba lozek" th:field="*{bedCount}"><br/>
+    <input type="text" placeholder="Cena za noc" th:field="*{priceForDay}"><br/>
+    <input type="text" placeholder="Kitchenette" th:field="*{kitchenette}"><br/>
+    <input type="text" placeholder="PetFriendly" th:field="*{petFriendly}"><br/>
+    <input type="text" placeholder="ReadyToRent" th:field="*{readyToRent}"><br/>
+    <input type="submit" value="OK">
+    </br>
+</form>
+</body>
+</html>

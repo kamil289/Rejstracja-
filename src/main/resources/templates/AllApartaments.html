@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Apartamenty-Krakowskie</title>
+    <link rel="stylesheet" type="text/css" href="/main.css">
+</head>
+<body>
+
+<div id="logo">
+</div>
+
+<div id="user-menu">
+    <th:block th:if="${!isLogged}">
+        <a href="/login" id="login-button"></a>
+    </th:block>
+    <th:block th:if="${isLogged}">
+        <a href="/logout" id="login-button"></a>
+    </th:block>
+
+</div>
+
+<div id="finder">
+    <form method="POST" action="/find">
+        <input type="text" placeholder="Szukaj">
+        <input type="submit" value="Szukaj">
+    </form>
+</div>
+
+<div id="menu">
+    <a href="/addApartments" id="addApartments">Dodaj Apartament</a>
+    <a href="/busyApartments" id="busyApartments">Zajęte Apartamenty</a>
+    <a href="/freeApartments" id="freeApartments">Wolne Apartamenty</a>
+    <a href="/invoice" id="invoice">Wystaw Fakture</a>
+    <a href="/listGuest" id="listGuest">Lista Gości</a>
+    <a href="/registerGuest" id="registerGuest">Zamelduj Gościa</a>
+</div>
+
+<div id="content">
+    <th:block th:each="currentApartments : ${apartments}">
+        <div class="apartments">
+            <div class="number">
+                <div class="label">Numer Apartamentu:</div>
+                <div class="value" th:text="${currentApartments.number}"></div>
+            </div>
+            <div class="roomCount">
+                <div class="label">Ilość Pokoi:</div>
+                <div class="value" th:text="${currentApartments.roomCount}"></div>
+            </div>
+            <div class="bedCount">
+                <div class="label">Ilosc Łóżek:</div>
+                <div class="value" th:text="${currentApartments.bedCount}"></div>
+            </div>
+            <div class="priceForDay">
+                <div class="label">Cena za dobe:</div>
+                <div class="value" th:text="${currentApartments.priceForDay}"></div>
+            </div>
+            <div class="kitchenette">
+                <div class="label">Dostępność kuchni:</div>
+                <div class="value" th:text="${currentApartments.kitchenette}"></div>
+            </div>
+            <div class="petFriendly">
+                <div class="label">Przyjazny zwierzętom:</div>
+                <div class="value" th:text="${currentApartments.petFriendly}"></div>
+            </div>
+            <div class="readyToRent">
+                <div class="label">Dostępny do wynajęcia:</div>
+                <div class="value" th:text="${currentApartments.readyToRent}"></div>
+            </div>
+            <!--
+            <a th:href="@{/addToBasket/{id}(id=${currentBook.id})}">Do koszyka</a>-->
+        </div>
+
+    </th:block>
+
+</div>
+
+</body>
+</html>
