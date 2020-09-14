@@ -6,14 +6,72 @@
     <link rel="stylesheet" type="text/css" href="/login.css">
 </head>
 <body>
+<a href="/allApartments" id="allApartments">Powrót!!!</a>
 <form id="login-form" method="POST" th:object="${apart}">
     <input type="text" placeholder="number" th:field="*{number}"><br/>
     <input type="text" placeholder="Liczba pokoi" th:field="*{roomCount}"><br/>
     <input type="text" placeholder="Liczba lozek" th:field="*{bedCount}"><br/>
     <input type="text" placeholder="Cena za noc" th:field="*{priceForDay}"><br/>
-    <input type="text" placeholder="Kitchenette" th:field="*{kitchenette}"><br/>
+   <!-- <input type="text" placeholder="Kitchenette" th:field="*{kitchenette}"><br/>
     <input type="text" placeholder="PetFriendly" th:field="*{petFriendly}"><br/>
-    <input type="text" placeholder="ReadyToRent" th:field="*{readyToRent}"><br/>
+    <input type="text" placeholder="ReadyToRent" th:field="*{readyToRent}"><br/>-->
+    <label for="kitchenette" style="
+    font-size: 20px;
+">Dostępność kuchni :</label>
+    <select name="score" id="kitchenette" th:field="*{kitchenette}" style="
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left-width: 1px;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 20px;
+">
+        <option value="YES">YES</option>
+        <option value="NO">NO</option>
+    </select>
+    <label for="petFriendly" style="
+    font-size: 20px;
+">For pets :</label>
+    <select name="score" id="petFriendly" th:field="*{petFriendly}" style="
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left-width: 1px;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 20px;
+">
+        <option value="YES">YES</option>
+        <option value="NO">NO</option>
+    </select>
+    <label for="readyToRent" style="
+    font-size: 20px;
+">Gotowe do wynajmu :</label>
+    <select name="score" id="readyToRent" th:field="*{readyToRent}" style="
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left-width: 1px;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 20px;
+">
+        <option value="YES">YES</option>
+        <option value="NO">NO</option>
+    </select>
+    <!--<label for="Kitchenette">Kitchenette</label>
+    <select id="Kitchenette">
+        <option value="YES">YES</option>
+        <option value="NO">NO</option>
+    </select><br/>
+    <label for="PetFriendly">PetFriendly</label>
+    <select id="PetFriendly">
+        <option value="YES">YES</option>
+        <option value="NO">NO</option>
+    </select><br/>
+    <label for="ReadyToRent">ReadyToRent</label>
+    <select id="ReadyToRent">
+        <option value="YES">YES</option>
+        <option value="NO">NO</option>
+    </select><br/>-->
     <input type="submit" value="OK">
     </br>
 </form>

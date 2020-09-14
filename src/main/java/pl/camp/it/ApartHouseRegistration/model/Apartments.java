@@ -8,13 +8,13 @@ public class Apartments {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false, unique = true)
-    private int number;
+    private String number;
     @Column(nullable = false)
-    private int roomCount;
+    private String roomCount;
     @Column(nullable = false, length = 3)
-    private int bedCount;
+    private String bedCount;
     @Column(nullable = false )
-    private int priceForDay;
+    private String priceForDay;
     @Enumerated(EnumType.STRING)
     private Kitchenette kitchenette;
     @Enumerated(EnumType.STRING)
@@ -30,28 +30,36 @@ public class Apartments {
         this.id = id;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
-    public int getRoomCount() {
+    public String getRoomCount() {
         return roomCount;
     }
 
-    public void setRoomCount(int roomCount) {
+    public void setRoomCount(String roomCount) {
         this.roomCount = roomCount;
     }
 
-    public int getBedCount() {
+    public String getBedCount() {
         return bedCount;
     }
 
-    public void setBedCount(int bedCount) {
+    public void setBedCount(String bedCount) {
         this.bedCount = bedCount;
+    }
+
+    public String getPriceForDay() {
+        return priceForDay;
+    }
+
+    public void setPriceForDay(String priceForDay) {
+        this.priceForDay = priceForDay;
     }
 
     public Kitchenette getKitchenette() {
@@ -78,14 +86,6 @@ public class Apartments {
         this.readyToRent = readyToRent;
     }
 
-    public int getPriceForDay() {
-        return priceForDay;
-    }
-
-    public void setPriceForDay(int priceForDay) {
-        this.priceForDay = priceForDay;
-    }
-
     @Override
     public String toString() {
         return "Apartments{" +
@@ -99,6 +99,7 @@ public class Apartments {
                 ", readyToRent=" + readyToRent +
                 '}';
     }
+
 
     public enum Kitchenette {
         YES,

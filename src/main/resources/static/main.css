@@ -83,6 +83,16 @@
 }
 
 
+
+.label {
+    width: 30%;
+    display: inline-block;
+}
+.value {
+    width: 69%;
+    display: inline-block;
+}
+
 /*
 .book {
     border: solid 1px black;
@@ -93,21 +103,10 @@
     width: 100%;
 }*/
 
-/*.label {
-    width: 30%;
-    display: inline-block;
-}*/
-/*
-.value {
-    width: 69%;
-    display: inline-block;
-}*/
-
 /*
 .author-name {
     display: inline-block;
 }
-*/
 
 /*
 .author-surname {

@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Apartamenty-Krakowskie</title>
+    <link rel="stylesheet" type="text/css" href="/login.css">
 </head>
 <body>
-Wystaw Fakture
+<form id="login-form" method="POST" th:object="${invoi}">
+    <input type="text" placeholder="number" th:field="*{number}"><br/>
+    <input type="text" placeholder="Data" th:field="*{date}"><br/>
+    <input type="text" placeholder="Zawartosc" th:field="*{body}"><br/>
+    <input type="text" placeholder="Cena" th:field="*{price}"><br/>
+    <input type="submit" value="OK">
+    </br>
+</form>
 </body>
 </html>

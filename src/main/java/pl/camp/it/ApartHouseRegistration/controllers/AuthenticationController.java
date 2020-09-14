@@ -35,18 +35,6 @@ public class AuthenticationController {
 
     }
 
-    /*@RequestMapping(value = "/addApartments", method = RequestMethod.GET)
-    public String addAp(Model model) {
-        model.addAttribute("apart", new Apartments());
-        return "addApartments";
-    }
-
-    @RequestMapping(value = "/addApartments", method = RequestMethod.POST)
-    public String addAp2(@ModelAttribute Apartments apartments, Model model) {
-        model.addAttribute(new Apartments());
-
-        return "main";
-    }*/
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@ModelAttribute User user){
         boolean authenticationResult = userService.authenticate(user);
@@ -58,6 +46,8 @@ public class AuthenticationController {
 
         }
     }
+
+
 
 
 

@@ -33,20 +33,20 @@ public class AdminController {
     @RequestMapping(value = "/addApartments", method = RequestMethod.GET)
     public String addApartments() {
         Apartments apartments1 = new Apartments();
-        apartments1.setNumber(101);
-        apartments1.setRoomCount(2);
-        apartments1.setBedCount(3);
-        apartments1.setPriceForDay(100);
+        apartments1.setNumber("101");
+        apartments1.setRoomCount("2");
+        apartments1.setBedCount("3");
+        apartments1.setPriceForDay("100");
         apartments1.setKitchenette(Apartments.Kitchenette.NO);
         apartments1.setPetFriendly(Apartments.PetFriendly.NO);
         apartments1.setReadyToRent(Apartments.ReadyToRent.YES);
 
 
         Apartments apartments2 = new Apartments();
-        apartments2.setNumber(102);
-        apartments2.setRoomCount(1);
-        apartments2.setBedCount(3);
-        apartments2.setPriceForDay(200);
+        apartments2.setNumber("102");
+        apartments2.setRoomCount("1");
+        apartments2.setBedCount("3");
+        apartments2.setPriceForDay("200");
         apartments2.setKitchenette(Apartments.Kitchenette.NO);
         apartments2.setPetFriendly(Apartments.PetFriendly.NO);
         apartments2.setReadyToRent(Apartments.ReadyToRent.NO);
