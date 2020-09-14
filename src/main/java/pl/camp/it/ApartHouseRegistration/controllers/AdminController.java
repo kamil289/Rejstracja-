@@ -6,9 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.camp.it.ApartHouseRegistration.model.Apartments;
+import pl.camp.it.ApartHouseRegistration.model.Guest;
 import pl.camp.it.ApartHouseRegistration.model.User;
 import pl.camp.it.ApartHouseRegistration.service.IApartmentsService;
+import pl.camp.it.ApartHouseRegistration.service.IGuestService;
 import pl.camp.it.ApartHouseRegistration.service.IUserService;
+
+import java.time.LocalDate;
 
 @Controller
 @RequestMapping(value = "/admin/utils")
@@ -18,6 +22,8 @@ public class AdminController {
     IUserService userService;
     @Autowired
     IApartmentsService apartmentsService;
+    @Autowired
+    IGuestService guestService;
 
     @RequestMapping(value = "/addUser", method = RequestMethod.GET)
     public String addUser() {
@@ -30,6 +36,7 @@ public class AdminController {
 
         return "redirect:/login";
     }
+
     @RequestMapping(value = "/addApartments", method = RequestMethod.GET)
     public String addApartments() {
         Apartments apartments1 = new Apartments();
@@ -54,9 +61,35 @@ public class AdminController {
         this.apartmentsService.addApartments(apartments1);
         this.apartmentsService.addApartments(apartments2);
 
-
-
         return "redirect:/main";
     }
+
+    @RequestMapping(value = "/addGuest", method = RequestMethod.GET)
+    public String addGuest() {
+        Guest guest = new Guest();
+        guest.setName("Kamil");
+        guest.setSurname("Kamil");
+        guest.setNationality("Poland");
+        guest.setPesel("9090901212122");
+        guest.setRoommate("2");
+        guest.setTimeOfVisit(LocalDate.now());
+
+        Apartments apartments2 = new Apartments();
+        apartments2.setNumber("102");
+        apartments2.setRoomCount("1");
+        apartments2.setBedCount("3");
+        apartments2.setPriceForDay("200");
+        apartments2.setKitchenette(Apartments.Kitchenette.NO);
+        apartments2.setPetFriendly(Apartments.PetFriendly.NO);
+        apartments2.setReadyToRent(Apartments.ReadyToRent.NO);
+
+        guest.setApartments(apartments2);
+
+        this.guestService.addGuest(guest);
+
+        return "redirect:/main";
+
+    }
+
 
 }

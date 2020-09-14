@@ -16,6 +16,8 @@
 /home/kamil/Pobrane/ApartHouseRegistrationNew-master/src/main/java/pl/camp/it/ApartHouseRegistration/model/Guest.java
 /home/kamil/Pobrane/ApartHouseRegistrationNew-master/src/main/java/pl/camp/it/ApartHouseRegistration/service/impl/InvoiceServiceImpl.java
 /home/kamil/Pobrane/ApartHouseRegistrationNew-master/src/main/java/pl/camp/it/ApartHouseRegistration/model/Invoice.java
+/home/kamil/Pobrane/ApartHouseRegistrationNew-master/src/main/java/pl/camp/it/ApartHouseRegistration/service/impl/GuestServiceImpl.java
+/home/kamil/Pobrane/ApartHouseRegistrationNew-master/src/main/java/pl/camp/it/ApartHouseRegistration/service/IGuestService.java
 /home/kamil/Pobrane/ApartHouseRegistrationNew-master/src/main/java/pl/camp/it/ApartHouseRegistration/AppConfiguration.java
 /home/kamil/Pobrane/ApartHouseRegistrationNew-master/src/main/java/pl/camp/it/ApartHouseRegistration/service/IInvoiceService.java
 /home/kamil/Pobrane/ApartHouseRegistrationNew-master/src/main/java/pl/camp/it/ApartHouseRegistration/DAO/impl/InvoiceDAOImpl.java

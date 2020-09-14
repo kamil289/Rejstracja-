@@ -7,4 +7,24 @@
 <body>
 rejstracja gościa
 </body>
+</html><!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Apartamenty-Krakowskie</title>
+    <link rel="stylesheet" type="text/css" href="/login.css">
+</head>
+<body>
+<a href="/listGuest" id="listGuest">Powrót!!!</a>
+<form id="login-form" method="POST" th:object="${guest}">
+    <input type="text" placeholder="Imie" th:field="*{name}"><br/>
+    <input type="text" placeholder="Nazwisko" th:field="*{surname}"><br/>
+    <input type="text" placeholder="Narodowość" th:field="*{nationality}"><br/>
+    <input type="text" placeholder="PESEL" th:field="*{pesel}"><br/>
+    <input type="text" placeholder="Wspollokatorzy" th:field="*{roommate}"><br/>
+
+    <input type="submit" value="OK">
+    </br>
+</form>
+</body>
 </html>

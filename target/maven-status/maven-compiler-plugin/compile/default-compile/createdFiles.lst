@@ -9,6 +9,7 @@ pl/camp/it/ApartHouseRegistration/DAO/impl/InvoiceDAOImpl.class
 pl/camp/it/ApartHouseRegistration/controllers/UserController.class
 pl/camp/it/ApartHouseRegistration/service/IInvoiceService.class
 pl/camp/it/ApartHouseRegistration/session/SessionObject.class
+pl/camp/it/ApartHouseRegistration/service/IGuestService.class
 pl/camp/it/ApartHouseRegistration/AppConfiguration.class
 pl/camp/it/ApartHouseRegistration/model/Apartments$ReadyToRent.class
 pl/camp/it/ApartHouseRegistration/DAO/impl/GuestDAOImpl.class
@@ -22,6 +23,7 @@ pl/camp/it/ApartHouseRegistration/DAO/IUserDAO.class
 pl/camp/it/ApartHouseRegistration/controllers/AuthenticationController.class
 pl/camp/it/ApartHouseRegistration/model/Guest.class
 pl/camp/it/ApartHouseRegistration/controllers/AdminController.class
+pl/camp/it/ApartHouseRegistration/service/impl/GuestServiceImpl.class
 pl/camp/it/ApartHouseRegistration/DAO/impl/ApartmentsDAOImpl.class
 pl/camp/it/ApartHouseRegistration/DAO/IApartmentsDAO.class
 pl/camp/it/ApartHouseRegistration/model/Apartments$PetFriendly.class
