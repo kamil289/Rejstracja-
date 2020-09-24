@@ -4,10 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import pl.camp.it.ApartHouseRegistration.model.Apartments;
 import pl.camp.it.ApartHouseRegistration.session.SessionObject;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 
 @Controller
@@ -27,11 +29,6 @@ public class CommonController {
         return "redirect:/main";
     }
 
-    /*@RequestMapping(value = "/AllApartaments", method = RequestMethod.GET)
-    public String AllApartments(){
-        return "AllApartaments";
-    }
-*/
-
 
 }
+

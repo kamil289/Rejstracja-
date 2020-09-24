@@ -58,8 +58,9 @@
                 <div class="label">Dostępny do wynajęcia:</div>
                 <div class="value" th:text="${currentApartments.readyToRent}"></div>
             </div>
-            <!--
-            <a th:href="@{/addToBasket/{id}(id=${currentBook.id})}">Do koszyka</a>-->
+
+            <a th:href="@{/rentApart/{apartmentId}(apartmentId=${currentApartments.id})}">Zamelduj Gościa !!!</a>
+
         </div>
 
     </th:block>

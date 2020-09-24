@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Apartamenty-Krakowskie</title>
+    <link rel="stylesheet" type="text/css" href="AllApartments.css">
+</head>
+<body>
+
+<div id="logo">
+</div>
+
+<div id="user-menu">
+
+</div>
+
+<div id="finder">
+    <form method="POST" action="/findGuest">
+        <input type="text" placeholder="Szukaj" name="pattern">
+        <input type="submit" value="Szukaj">
+    </form>
+</div>
+
+<div id="menu">
+
+    <a href="/registerGuest" id="registerGuest">Zarejstruj Gości</a>
+
+    <a href="/main" id="main">Powrót!!!</a>
+
+</div>
+
+<div id="content">
+    <th:block th:each="currentGuest : ${guest}">
+        <div class="apartments">
+            <div class="name">
+                <div class="label">Imie:</div>
+                <div class="value" th:text="${currentGuest.name}"></div>
+            </div>
+            <div class="surname">
+                <div class="label">Nazwiesko:</div>
+                <div class="value" th:text="${currentGuest.surname}"></div>
+            </div>
+            <div class="nationality">
+                <div class="label">Narodowość :</div>
+                <div class="value" th:text="${currentGuest.nationality}"></div>
+            </div>
+            <div class="pesel">
+                <div class="label">PESEL :</div>
+                <div class="value" th:text="${currentGuest.pesel}"></div>
+            </div>
+            <div class="roommate">
+                <div class="label">Współlokatorowie :</div>
+                <div class="value" th:text="${currentGuest.roommate}"></div>
+            </div>
+            <div class="timeOfVisit">
+                <div class="label">Data przyjazdu :</div>
+                <div class="value" th:text="${currentGuest.timeOfVisit}"></div>
+            </div>
+            <div class="guestRegister">
+                <div class="label">Gość zameldowany :</div>
+                <div class="value" th:text="${currentGuest.guestRegister}"></div>
+            </div>
+
+            <a href="/freeApartments" id="freeApartments">Zamelduj !!!</a>
+        </div>
+
+    </th:block>
+
+</div>
+
+</body>
+</html>

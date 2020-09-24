@@ -8,3 +8,13 @@ text-align: center;
 margin: 10px 0;
 text-align: center;
 }
+#logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50%;
+    height: 250px;
+    background-image: url("logo.png");
+    background-size: contain, 50% 50%;
+    background-repeat: no-repeat;
+}

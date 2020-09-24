@@ -39,7 +39,7 @@ public class AuthenticationController {
     public String login(@ModelAttribute User user){
         boolean authenticationResult = userService.authenticate(user);
         if(authenticationResult ){
-            sessionObject.setUser(new User());
+            sessionObject.setUser(user);
             return "redirect:/main";
         }else {
             return "redirect:/login";

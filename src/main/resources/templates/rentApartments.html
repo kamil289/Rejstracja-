@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Apartamenty-Krakowskie</title>
+    <link rel="stylesheet" type="text/css" href="/login.css">
+</head>
+<body>
+<a href="/allApartments" id="allApartments"><img src="logo.png" alt="logo"></a>
+<form id="login-form" method="POST" th:object="${apartments}">
+    <input type="text" th:field="*{number}"><br/>
+    <input type="text" th:field="*{roomCount}"><br/>
+    <input type="text" th:field="*{bedCount}"><br/>
+    <input type="text" th:field="*{priceForDay}"><br/>
+    <input type="text" th:field="*{kitchenette}"><br/>
+    <input type="text" th:field="*{petFriendly}"><br/>
+    <label for="readyToRent" style="
+    font-size: 20px;
+">Gotowe do wynajmu :</label>
+    <select name="score" id="readyToRent" th:field="*{readyToRent}" style="
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left-width: 1px;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 20px;
+">
+        <option value="YES">YES</option>
+        <option value="NO">NO</option>
+    </select>
+    <input type="submit" value="OK"></br>
+</form>
+
+</form>
+
+</body>
+
+</html>

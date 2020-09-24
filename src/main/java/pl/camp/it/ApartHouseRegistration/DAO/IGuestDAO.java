@@ -12,4 +12,5 @@ public interface IGuestDAO {
 
     Guest getGuestByName(String name);
 
+    List<Guest> getGuestByStatus(Guest.GuestRegister guestRegister);
 }

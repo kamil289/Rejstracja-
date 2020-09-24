@@ -15,8 +15,8 @@
 </div>
 
 <div id="finder">
-    <form method="POST" action="/find">
-        <input type="text" placeholder="Szukaj">
+    <form method="POST" action="/findApartment">
+        <input type="text" placeholder="Szukaj" name="number">
         <input type="submit" value="Szukaj">
     </form>
 </div>
@@ -61,8 +61,7 @@
                 <div class="label">Dostępny do wynajęcia:</div>
                 <div class="value" th:text="${currentApartments.readyToRent}"></div>
             </div>
-            <!--
-            <a th:href="@{/addToBasket/{id}(id=${currentBook.id})}">Do koszyka</a>-->
+
         </div>
 
     </th:block>

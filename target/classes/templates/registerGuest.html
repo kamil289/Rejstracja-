@@ -1,13 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Apartamenty-Krakowskie</title>
-</head>
-<body>
-rejstracja gościa
-</body>
-</html><!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
@@ -17,11 +8,38 @@ rejstracja gościa
 <body>
 <a href="/listGuest" id="listGuest">Powrót!!!</a>
 <form id="login-form" method="POST" th:object="${guest}">
-    <input type="text" placeholder="Imie" th:field="*{name}"><br/>
-    <input type="text" placeholder="Nazwisko" th:field="*{surname}"><br/>
-    <input type="text" placeholder="Narodowość" th:field="*{nationality}"><br/>
-    <input type="text" placeholder="PESEL" th:field="*{pesel}"><br/>
-    <input type="text" placeholder="Wspollokatorzy" th:field="*{roommate}"><br/>
+    <input type="text" placeholder="name" th:field="*{name}"><br/>
+    <input type="text" placeholder="surname" th:field="*{surname}"><br/>
+    <input type="text" placeholder="nationality" th:field="*{nationality}"><br/>
+    <input type="text" placeholder="pesel" th:field="*{pesel}"><br/>
+    <input type="text" placeholder="roommate" th:field="*{roommate}"><br/>
+    <input type="date" placeholder="timeOfVisit" th:field="*{timeOfVisit}"
+           th:text="${#dates.format(standardDate, 'yyyy-MM-dd')}"><br/>
+    <label for="guestRegister" style="
+    font-size: 20px;
+">Status Rejstracji :</label>
+    <select name="score" id="guestRegister" th:field="*{guestRegister}" style="
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left-width: 1px;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 20px;
+">
+        <option value="NO">Nie Zakwaterowany</option>
+        <option value="YES">Zakwaterowany</option>
+    </select>
+
+
+
+   <!-- <div class="author">
+        <div class="label">Apartment :</div>
+        <div class="value">
+            <div class="author-name" th:text="${currentBook.author.name}"></div>
+            <div class="author-surname" th:text="${currentBook.author.surname}"></div>
+        </div>-->
+  <!--  </div>-->
+
 
     <input type="submit" value="OK">
     </br>

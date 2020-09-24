@@ -1,10 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Apartamenty-Krakowskie</title>
+    <link rel="stylesheet" type="text/css" href="/AllApartments.css">
 </head>
 <body>
-lista Gości
+
+<div id="logo">
+</div>
+
+<div id="user-menu">
+
+</div>
+
+<div id="finder">
+    <form method="POST" action="/findGuest">
+        <input type="text" placeholder="Szukaj" name="pattern">
+        <input type="submit" value="Szukaj">
+    </form>
+</div>
+
+<div id="menu">
+
+    <a href="/registerGuest" id="registerGuest">Zarejstruj Gości</a>
+    <a href="/guestInApartment" id="guestInApartment">Zameldowani Goście</a>
+    <a href="/guestWaitToRegister" id="guestWaitToRegister">Goście czekający na Meldunek</a>
+    <a href="/main" id="main">Powrót!!!</a>
+
+</div>
+
+<div id="content">
+    <th:block th:each="currentGuest : ${guest}">
+        <div class="apartments">
+            <div class="name">
+                <div class="label">Imie:</div>
+                <div class="value" th:text="${currentGuest.name}"></div>
+            </div>
+            <div class="surname">
+                <div class="label">Nazwiesko:</div>
+                <div class="value" th:text="${currentGuest.surname}"></div>
+            </div>
+            <div class="nationality">
+                <div class="label">Narodowość :</div>
+                <div class="value" th:text="${currentGuest.nationality}"></div>
+            </div>
+            <div class="pesel">
+                <div class="label">PESEL :</div>
+                <div class="value" th:text="${currentGuest.pesel}"></div>
+            </div>
+            <div class="roommate">
+                <div class="label">Współlokatorowie :</div>
+                <div class="value" th:text="${currentGuest.roommate}"></div>
+            </div>
+            <div class="timeOfVisit">
+                <div class="label">Data przyjazdu :</div>
+                <div class="value" th:text="${currentGuest.timeOfVisit}"></div>
+            </div>
+            <div class="guestRegister">
+                <div class="label">Gość zameldowany :</div>
+                <div class="value" th:text="${currentGuest.guestRegister}"></div>
+            </div>
+            <!--<div class="apartments">
+                <div class="label">Apartament :</div>
+                <div class="value">
+                    <div class="apartments-number" th:text="${currentGuest.apartments.number}"></div>
+                    <div class="apartments-roomCount" th:text="${currentGuest.apartments.roomCount}"></div>
+                    <div class="apartments-bedCount" th:text="${currentGuest.apartments.bedCount}"></div>
+                    <div class="apartments-priceForDay" th:text="${currentGuest.apartments.priceForDay}"></div>
+                    <div class="apartments-kitchenette" th:text="${currentGuest.apartments.kitchenette}"></div>
+                    <div class="apartments-petFriendly" th:text="${currentGuest.apartments.petFriendly}"></div>
+                    <div class="apartments-readyToRent" th:text="${currentGuest.apartments.readyToRent}"></div>
+                </div>
+
+            </div>-->
+
+        </div>
+
+
+
+    </th:block>
+
+</div>
+
 </body>
 </html>

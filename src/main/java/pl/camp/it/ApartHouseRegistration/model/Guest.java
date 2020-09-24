@@ -1,7 +1,7 @@
 package pl.camp.it.ApartHouseRegistration.model;
 
+
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity(name = "tguest")
 public class Guest {
@@ -16,30 +16,16 @@ public class Guest {
     private String nationality;
     @Column(nullable = false, unique = true)
     private String pesel;
-    @Column(nullable = false, length = 3)
+    @Column(nullable = false)
     private String roommate;
-    @Column(nullable = false, unique = true, length = 365)
-    private LocalDate timeOfVisit;
+    @Column(nullable = false)
+    private String timeOfVisit;
+    @Enumerated(EnumType.STRING)
+    private Guest.GuestRegister guestRegister;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Apartments apartments;
    /* @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Invoice invoice;*/
-
-    public String getPesel() {
-        return pesel;
-    }
-
-    public void setPesel(String pesel) {
-        this.pesel = pesel;
-    }
-
-    public void setRoommate(String roommate) {
-        this.roommate = roommate;
-    }
-
-    public void setTimeOfVisit(LocalDate timeOfVisit) {
-        this.timeOfVisit = timeOfVisit;
-    }
 
     public int getId() {
         return id;
@@ -73,6 +59,37 @@ public class Guest {
         this.nationality = nationality;
     }
 
+    public String getPesel() {
+        return pesel;
+    }
+
+    public void setPesel(String pesel) {
+        this.pesel = pesel;
+    }
+
+    public String getRoommate() {
+        return roommate;
+    }
+
+    public void setRoommate(String roommate) {
+        this.roommate = roommate;
+    }
+
+    public String getTimeOfVisit() {
+        return timeOfVisit;
+    }
+
+    public void setTimeOfVisit(String timeOfVisit) {
+        this.timeOfVisit = timeOfVisit;
+    }
+
+    public GuestRegister getGuestRegister() {
+        return guestRegister;
+    }
+
+    public void setGuestRegister(GuestRegister guestRegister) {
+        this.guestRegister = guestRegister;
+    }
 
     public Apartments getApartments() {
         return apartments;
@@ -82,14 +99,6 @@ public class Guest {
         this.apartments = apartments;
     }
 
-    /*public Invoice getInvoice() {
-        return invoice;
-    }
-
-    public void setInvoice(Invoice invoice) {
-        this.invoice = invoice;
-    }*/
-
     @Override
     public String toString() {
         return "Guest{" +
@@ -97,10 +106,16 @@ public class Guest {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", nationality='" + nationality + '\'' +
-                ", roommate=" + roommate +
-                ", timeOfVisit=" + timeOfVisit +
+                ", pesel='" + pesel + '\'' +
+                ", roommate='" + roommate + '\'' +
+                ", timeOfVisit='" + timeOfVisit + '\'' +
+                ", guestRegister=" + guestRegister +
                 ", apartments=" + apartments +
-               /* ", invoice=" + invoice +*/
                 '}';
+    }
+
+    public enum GuestRegister {
+        YES,
+        NO
     }
 }

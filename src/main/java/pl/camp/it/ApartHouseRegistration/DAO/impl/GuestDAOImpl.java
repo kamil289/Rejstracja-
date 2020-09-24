@@ -61,5 +61,16 @@ public class GuestDAOImpl implements IGuestDAO {
         }
     }
 
+    @Override
+    public List<Guest> getGuestByStatus(Guest.GuestRegister guestRegister) {
+        Session session = this.sessionFactory.openSession();
+        Query<Guest> query = session
+                .createQuery("FROM pl.camp.it.ApartHouseRegistration.model.Guest WHERE guestRegister = :guestRegister");
+        query.setParameter("guestRegister", guestRegister);
+        List<Guest> result = query.getResultList();
+        session.close();
+        return result;
+    }
+
 
 }

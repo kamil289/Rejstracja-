@@ -58,8 +58,21 @@
                 <div class="label">Dostępny do wynajęcia:</div>
                 <div class="value" th:text="${currentApartments.readyToRent}"></div>
             </div>
-            <!--
-            <a th:href="@{/addToBasket/{id}(id=${currentBook.id})}">Do koszyka</a>-->
+            <th:block th:if="${currentApartments.guest != null}">
+                <div class="guest">
+                    <div class="label">Gosc :</div>
+                    <div class="value">
+                        <div class="guest-name" th:text="${currentApartments.guest.name}"></div>
+                        <div class="guest-surname" th:text="${currentApartments.guest.surname}"></div>
+                        <div class="guest-nationality" th:text="${currentApartments.guest.nationality}"></div>
+                        <div class="guest-pesel" th:text="${currentApartments.guest.pesel}"></div>
+                        <div class="guest-roommate" th:text="${currentApartments.guest.roommate}"></div>
+                        <div class="guest-timeOfVisit" th:text="${currentApartments.guest.timeOfVisit}"></div>
+                    </div>
+                </div>
+            </th:block>
+
+            <a th:href="@{/freeApart/{apartmentId}(apartmentId=${currentApartments.id})}">Wymelduj Gościa !!!</a>
         </div>
 
     </th:block>

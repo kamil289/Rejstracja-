@@ -10,24 +10,29 @@ import java.util.List;
 @Service
 public class GuestServiceImpl implements IGuestService {
 
-    @Autowired
-    IGuestService guestService;
+
     @Autowired
     IGuestDAO guestDAO;
 
     @Override
     public void addGuest(Guest guest) {
-        guestService.addGuest(guest);
+        guestDAO.addGuest(guest);
 
     }
 
     @Override
     public List<Guest> getAllGuest() {
-        return this.guestService.getAllGuest();
+        return this.guestDAO.getAllGuest();
     }
 
     @Override
     public Guest getGuestByName(String name) {
-        return this.guestService.getGuestByName(name);
+        return this.guestDAO.getGuestByName(name);
     }
+
+    @Override
+    public List<Guest> getGuestByStatus(Guest.GuestRegister guestRegister) {
+        return this.guestDAO.getGuestByStatus(guestRegister);
+    }
+
 }

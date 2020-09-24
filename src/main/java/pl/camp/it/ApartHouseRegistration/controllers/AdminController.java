@@ -56,7 +56,7 @@ public class AdminController {
         apartments2.setPriceForDay("200");
         apartments2.setKitchenette(Apartments.Kitchenette.NO);
         apartments2.setPetFriendly(Apartments.PetFriendly.NO);
-        apartments2.setReadyToRent(Apartments.ReadyToRent.NO);
+        apartments2.setReadyToRent(Apartments.ReadyToRent.YES);
 
         this.apartmentsService.addApartments(apartments1);
         this.apartmentsService.addApartments(apartments2);
@@ -72,20 +72,33 @@ public class AdminController {
         guest.setNationality("Poland");
         guest.setPesel("9090901212122");
         guest.setRoommate("2");
-        guest.setTimeOfVisit(LocalDate.now());
+        guest.setTimeOfVisit("2020-20-20");
+        guest.setGuestRegister(Guest.GuestRegister.NO);
 
-        Apartments apartments2 = new Apartments();
-        apartments2.setNumber("102");
-        apartments2.setRoomCount("1");
-        apartments2.setBedCount("3");
-        apartments2.setPriceForDay("200");
-        apartments2.setKitchenette(Apartments.Kitchenette.NO);
-        apartments2.setPetFriendly(Apartments.PetFriendly.NO);
-        apartments2.setReadyToRent(Apartments.ReadyToRent.NO);
+        Guest guest1 = new Guest();
+        guest1.setName("Janusz");
+        guest1.setSurname("Janusz");
+        guest1.setNationality("Poland");
+        guest1.setPesel("909090121");
+        guest1.setRoommate("2");
+        guest1.setTimeOfVisit("2020-20-20");
+        guest1.setGuestRegister(Guest.GuestRegister.YES);
 
-        guest.setApartments(apartments2);
+        /*Apartments apartments3 = new Apartments();
+        apartments3.setNumber("187");
+        apartments3.setRoomCount("1");
+        apartments3.setBedCount("3");
+        apartments3.setPriceForDay("200");
+        apartments3.setKitchenette(Apartments.Kitchenette.NO);
+        apartments3.setPetFriendly(Apartments.PetFriendly.NO);
+        apartments3.setReadyToRent(Apartments.ReadyToRent.NO);
+
+        this.apartmentsService.addApartments(apartments3);*/
+
+       /* guest.setApartments(apartments3);*/
 
         this.guestService.addGuest(guest);
+        this.guestService.addGuest(guest1);
 
         return "redirect:/main";
 

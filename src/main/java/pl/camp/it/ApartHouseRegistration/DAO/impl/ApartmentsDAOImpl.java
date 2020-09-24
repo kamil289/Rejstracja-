@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import pl.camp.it.ApartHouseRegistration.DAO.IApartmentsDAO;
 import pl.camp.it.ApartHouseRegistration.model.Apartments;
-import pl.camp.it.ApartHouseRegistration.model.User;
+import pl.camp.it.ApartHouseRegistration.model.Guest;
 import pl.camp.it.ApartHouseRegistration.session.SessionObject;
 
 import javax.persistence.NoResultException;
@@ -48,6 +48,17 @@ public class ApartmentsDAOImpl implements IApartmentsDAO {
     }
 
     @Override
+    public List<Apartments> findApartments(String pattern) {
+        Session session = this.sessionFactory.openSession();
+        Query<Apartments> query = session
+                .createQuery("FROM pl.camp.it.ApartHouseRegistration.model.Apartments WHERE number like :number");
+        query.setParameter("number", "%" + pattern + "%");
+        List<Apartments> result = query.getResultList();
+        session.close();
+        return result;
+    }
+
+    @Override
     public List<Apartments> getCategoryApartments(Apartments.ReadyToRent readyToRent) {
         try {
             Session session = sessionFactory.openSession();
@@ -75,6 +86,51 @@ public class ApartmentsDAOImpl implements IApartmentsDAO {
             return apartments;
         } catch (NoResultException e) {
             return null;
+        }
+    }
+
+    @Override
+    public Apartments getApartById(int id) {
+        Session session = this.sessionFactory.openSession();
+        Query<Apartments> query = session
+                .createQuery("FROM pl.camp.it.ApartHouseRegistration.model.Apartments WHERE id = :id");
+        query.setParameter("id", id);
+        Apartments result = query.getSingleResult();
+        session.close();
+        return result;
+    }
+    @Override
+    public void updateApartments(Apartments apartments, Guest guest) {
+
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.update(apartments);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public void delateApartments(Apartments apartments){
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.delete(apartments);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
         }
     }
 }

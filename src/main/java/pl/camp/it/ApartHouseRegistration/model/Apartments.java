@@ -1,14 +1,18 @@
 package pl.camp.it.ApartHouseRegistration.model;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 @Entity(name = "tapartments")
-public class Apartments {
+public class Apartments  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false, unique = true)
-    private String number;
+    private String  number;
     @Column(nullable = false)
     private String roomCount;
     @Column(nullable = false, length = 3)
@@ -21,6 +25,8 @@ public class Apartments {
     private PetFriendly petFriendly;
     @Enumerated(EnumType.STRING)
     private ReadyToRent readyToRent;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Guest guest;
 
     public int getId() {
         return id;
@@ -86,19 +92,30 @@ public class Apartments {
         this.readyToRent = readyToRent;
     }
 
+    public Guest getGuest() {
+        return guest;
+    }
+
+    public void setGuest(Guest guest) {
+        this.guest = guest;
+    }
+
     @Override
     public String toString() {
         return "Apartments{" +
                 "id=" + id +
-                ", number=" + number +
-                ", roomCount=" + roomCount +
-                ", bedCount=" + bedCount +
-                ", priceForDay=" + priceForDay +
+                ", number='" + number + '\'' +
+                ", roomCount='" + roomCount + '\'' +
+                ", bedCount='" + bedCount + '\'' +
+                ", priceForDay='" + priceForDay + '\'' +
                 ", kitchenette=" + kitchenette +
                 ", petFriendly=" + petFriendly +
                 ", readyToRent=" + readyToRent +
+                ", guest=" + guest +
                 '}';
     }
+
+
 
 
     public enum Kitchenette {
